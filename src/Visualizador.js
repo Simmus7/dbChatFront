@@ -30,19 +30,7 @@ export class Visualizador extends Component {
             this.setState({
                 mensajes: response.data
             })
-            
-           
-            
-            var mensajesParsedLista = this.state.mensajes.map(m => (
-                m.mensaje
-            ))
-            var stringMensajes = ''
-            for (let i = 0; i<mensajesParsedLista.length; i++) {
-                stringMensajes = stringMensajes+" "+mensajesParsedLista[i]
-            }
-            this.setState({
-                msjParsed: stringMensajes
-            })
+
         })
     }
 
@@ -83,10 +71,14 @@ export class Visualizador extends Component {
                         </Form.Group>
                     </Form>
                 </div>
+                <div>
+                    {this.state.mensajes.map((m,i)=>(
+                        <div key={m._id}><p>{i}. {m.mensaje}</p></div>
+                    ))}
+                </div>
+               
             </div>
-            <div>
-                {this.state.msjParsed}
-            </div>
+
         </div>
         )
     }
