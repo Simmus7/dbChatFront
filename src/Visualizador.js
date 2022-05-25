@@ -26,7 +26,7 @@ export class Visualizador extends Component {
         }
         console.log(codigo.codigo)
         
-        await axios.get('http://localhost:3000/mensaje', {params: codigo}).then( response => {
+        await axios.get('https://dbchatback2.herokuapp.com/mensaje', {params: codigo}).then( response => {
             this.setState({
                 mensajes: response.data
             })

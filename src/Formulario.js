@@ -26,7 +26,7 @@ export class Formulario extends Component {
             
         }
         
-        axios.post('http://localhost:3000/mensaje', mensaje).then( () => {console.log('done')})
+        axios.post('https://dbchatback2.herokuapp.com/mensaje', mensaje).then( () => {console.log('done')})
     }
     onChangeMensaje (e) {
         this.setState({
