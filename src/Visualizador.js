@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Visualizador.css';
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';
+import Swal from "sweetalert2";
 
 export class Visualizador extends Component {
     constructor(props){
@@ -15,7 +16,7 @@ export class Visualizador extends Component {
         this.state = {
             codigo : '',
             mensajes: [],
-            msjParsed: ''
+            
         }
     }
     async onSubmit(e) {
@@ -72,9 +73,9 @@ export class Visualizador extends Component {
                     </Form>
                 </div>
                 <div>
-                    {this.state.mensajes.map((m,i)=>(
-                        <div key={m._id}><p>{i}. {m.mensaje}</p></div>
-                    ))}
+                    {this.state.mensajes!=='No hay mensajes bajo ese código'? this.state.mensajes.map((m,i)=>(
+                        <div key={m._id}><p>{i+1}. {m.mensaje}</p></div>
+                    )) : <div>{this.state.mensajes}</div>}
                 </div>
                
             </div>

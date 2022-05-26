@@ -3,6 +3,7 @@ import './Formulario.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';
+import Swal from "sweetalert2";
 
 export class Formulario extends Component {
     constructor(props){
@@ -26,7 +27,17 @@ export class Formulario extends Component {
             
         }
         
-        axios.post('https://dbchatback2.herokuapp.com/mensaje', mensaje).then( () => {console.log('done')})
+        axios.post('https://dbchatback2.herokuapp.com/mensaje', mensaje).then( () => {
+            Swal.fire({
+            title: 'Mensaje agregado!'
+          })
+        })
+        this.setState({
+            mensaje: '',
+            codigo: ''
+          })
+
+
     }
     onChangeMensaje (e) {
         this.setState({
