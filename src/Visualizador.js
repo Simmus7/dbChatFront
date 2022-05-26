@@ -64,7 +64,8 @@ export class Visualizador extends Component {
                                         onChange={this.onChangeCodigo}>
                                     </Form.Control>
                                 </div>
-                                <div className='col-1'>
+                                
+                                <div className='col-md-1'>
                                     <Button className="submit-button" value="submit" type="submit">Consultar</Button>
                                 </div>
                             </div>
